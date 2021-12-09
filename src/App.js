@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import { Container } from '@material-ui/core';
+import Navbar from './components/Navbar';
+import RandomPerson from './pages/RandomPerson';
+import Pagination from './pages/Pagination';
+import StockPhotos from './pages/StockPhotos';
+import DarkMode from './pages/DarkMode';
+import Error from './pages/Error';
+
+const useStyles = makeStyles((theme) => ({
+  wrapper: {
+    marginTop: 100,
+  },
+}));
 
 function App() {
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Navbar />
+      <Container className={classes.wrapper}>
+        <Routes>
+          <Route path="/random" element={<RandomPerson />} />
+          <Route path="/pagination" element={<Pagination />} />
+          <Route path="/photos" element={<StockPhotos />} />
+          <Route path="/toggle" element={<DarkMode />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </Container>
+    </>
   );
 }
 
