@@ -12,7 +12,8 @@ import {
   Typography,
 } from '@material-ui/core';
 
-const clientID = `?client_id=${process.env.REACT_APP_ACCESS_KEY}`;
+const apiKey = 'Jddye8ekQtIktoUmsfA7n-Ut0U5RP-KGTEk7QkpZwgQ';
+const clientID = `?client_id=${apiKey}`;
 const mainUrl = `https://api.unsplash.com/photos/`;
 const searchUrl = `https://api.unsplash.com/search/photos/`;
 
